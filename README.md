@@ -1,2 +1,2 @@
 # Information-Management
-The information models i have produced during the module Information Management I
+Information Models I've completed using UML, XML, and XQuery to understand their underlying importance.
