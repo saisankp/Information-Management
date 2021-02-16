@@ -1,0 +1,142 @@
+<?xml version='1.0' encoding='ISO-8859-1' standalone= "no" ?>
+
+<!DOCTYPE repairs [
+
+<!ELEMENT Accounts (customer*)>
+
+<!ELEMENT customer (accounts_owner+, account, 
+Bill*, meter_readings)>
+
+<!ELEMENT accounts_owner (title?, first_name, surname, date_account_created, number*)>
+<!ATTLIST accounts_owner type CDATA #IMPLIED> 
+<!ATTLIST number type CDATA #IMPLIED>
+
+<!ELEMENT account (account_id, payment_method, 
+balance?, bank)>
+
+<!ELEMENT Bill (bill_status+, total, date_of_bill)>
+<!ATTLIST Bill name CDATA #IMPLIED> 
+<!ATTLIST total type CDATA #IMPLIED> 
+
+<!ELEMENT meter_reading (electric_reading?, 
+gas_reading?)>
+<!ATTLIST electric_reading measurement CDATA #IMPLIED><!ATTLIST gas_reading measurement CDATA #IMPLIED> 
+
+
+<!ELEMENT title (#PCDATA)> 
+<!ELEMENT first_name (#PCDATA)> 
+<!ELEMENT surname (#PCDATA)>
+<!ELEMENT date_account_created (#PCDATA)>
+<!ELEMENT number (#PCDATA)>
+
+<!ELEMENT account_id (#PCDATA)>
+<!ELEMENT payment_method (#PCDATA)>
+<!ELEMENT balance (#PCDATA)>
+<!ELEMENT bank (#PCDATA)>
+
+<!ELEMENT bill_status (#PCDATA)>
+<!ELEMENT total (#PCDATA)>
+<!ELEMENT date_of_bill (#PCDATA)>
+
+<!ELEMENT electric_reading (#PCDATA)>
+<!ELEMENT gas_reading (#PCDATA)> 
+
+]>
+
+
+<Accounts>
+
+<customer> 
+    
+    <!-- needs to be linked to the customer.xml c because of 
+    associations   -->
+    <accounts_owner type = "Home">
+      <title> Mr. </title>
+      <first_name> Luke </first_name>
+      <surname> Seckerson </surname>
+      <date_account_created>
+       1/7/2020 
+       </date_account_created>
+       <number type = "moblie"> 
+      094-232-1232
+      </number>
+    </accounts_owner>
+
+    <Account type = "Checking Account"> 
+         <account_id> 1123456789 </account_id>
+         <payment_method> Fixed </payment_method>
+         <balance> 34.23 </balance>  
+         <bank> PTSB </bank>         
+    </Account>
+    
+    <Bill name = "Electic Bill">
+          <bill_status>Outstanding</bill_status>
+          <total type = "due"> 45.67 </total>
+          <date_of_bill> 14/9/2020 </date_of_bill>
+    </Bill>
+    
+    <Bill name = "Electric Bill">
+          <bill_status>Paid</bill_status>
+          <total type = "amount paid"> 
+          32.58 
+          </total>
+          <date_of_bill> 12/7/2020 </date_of_bill>
+    </Bill>
+    
+    
+    <meter_readings>
+           <electric_reading>
+            244 16
+            </electric_reading>
+           <gas_reading> </gas_reading>
+    </meter_readings> 
+
+</customer>
+  
+<customer>
+
+    <accounts_owner type ="Business">
+      <title> Ms. </title>
+      <first_name> Susan </first_name>
+      <surname> Kennedy </surname>
+      <date_account_created> 1/6/2020 </date_account_created>
+      <number type = "moblie"> 094-222-4321 </number>
+    </accounts_owner>
+
+    <Account type = "Current Account"> 
+         <account_id> 1123456790 </account_id>
+         <payment_method> Fixed </payment_method>
+         <balance> -29.77 </balance>  
+         <bank> AIB </bank>         
+    </Account>
+    
+    <Bill name = "Gas">
+          <bill_status>Paid</bill_status>
+          <total type = "amount paid"> 67.47 </total>
+          <date_of_bill> 14/6/2020 </date_of_bill>
+    </Bill>
+    
+    <Bill name = "Electric Bill">
+          <bill_status>Paid</bill_status>
+          <total type = "amount paid"> 45.58 </total>
+          <date_of_bill> 12/6/2020 </date_of_bill>
+    </Bill>
+    
+    
+    <meter_readings>
+           <electric_reading measured = "kilowatter per hour"> 
+            267 09
+           </electric_reading>
+           <gas_reading measured = "m3">
+            9314.67
+           </gas_reading>
+    </meter_readings> 
+    
+    
+</customer>  
+  
+
+
+
+</Accounts>
+
