@@ -1,0 +1,13 @@
+#Define Triggers for Database
+DELIMITER //
+CREATE TRIGGER UpdateDigiVend BEFORE INSERT ON DIGIVEND_MACHINE 
+FOR EACH ROW 
+BEGIN
+	IF NEW.QUANTITY = 0 THEN
+		SET NEW.PRICE = null;
+        SET NEW.Item_Name = null;
+	END IF;
+END//
+.
+RUN;
+DELIMITER ;
